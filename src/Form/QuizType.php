@@ -13,6 +13,7 @@ class QuizType extends AbstractType
     {
         $builder
             ->add('NumeroQuiz')
+            ->add('pro')
         ;
     }
 

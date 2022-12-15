@@ -22,6 +22,9 @@ class Quiz
     #[ORM\OneToMany(mappedBy: 'quiz', targetEntity: Question::class)]
     private Collection $Questions;
 
+    #[ORM\ManyToOne(inversedBy: 'quizzes')]
+    private ?User $pro = null;
+
     public function __construct()
     {
         $this->Questions = new ArrayCollection();
@@ -73,6 +76,18 @@ class Quiz
                 $question->setQuiz(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getPro(): ?User
+    {
+        return $this->pro;
+    }
+
+    public function setPro(?User $pro): self
+    {
+        $this->pro = $pro;
 
         return $this;
     }

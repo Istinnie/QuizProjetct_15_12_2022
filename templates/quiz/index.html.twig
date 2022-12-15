@@ -21,6 +21,7 @@
                 <tr>
                     {# <th style="visibility:hidden;">Id</th> #}
                     <th>Numero de quiz</th>
+                    <th>Professionnel</th>
                     <th>Actions</th>
                 </tr>
             </thead>
@@ -29,6 +30,7 @@
                 <tr>
                     {# <td style="visibility:hidden;">{{ quiz.id }}</td> #}
                     <td>Quiz {{ quiz.NumeroQuiz }}</td>
+                    <td>{{ quiz.pro }}</td>
                     <td>
                         <a href="{{ path('app_quiz_show', {'id': quiz.id}) }}" class="btn btn-outline-primary">
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-eye-fill" viewBox="0 0 16 16">

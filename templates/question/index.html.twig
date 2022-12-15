@@ -15,21 +15,25 @@
     
         <h1 class="align-middle">Liste des questions</h1>
         <a href="{{ path('app_question_new') }}" class="btn btn-outline-success mb-3 mt-3">Ajouter</a>
-        <table class="table">
-            <thead>
+        <table >
+            <thead class="w-100 p-3">
                 <tr>
-                    <th style="visibility:hidden;">Id</th>
+                    
+                    
                     <th>Numéro</th>
+                    <th>Quiz</th>
                     <th>Libellé</th>
+                    
                     <th>Actions</th>
                 </tr>
             </thead>
             <tbody>
             {% for question in questions %}
                 <tr>
-                    <td style="visibility:hidden;">{{ question.id }}</td>
                     <td>Question {{ question.NumeroQuestion}}</td>
-                    <td>{{ question.LibelleQuestion }}</td>
+                    <td>{{question.quiz}}</td>
+                    
+                    <td>{{question.LibelleQuestion }}</td>
                     
                     <td>
                         <a href="{{ path('app_question_show', {'id': question.id}) }}" class="btn btn-outline-primary">

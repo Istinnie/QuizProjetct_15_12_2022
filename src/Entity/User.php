@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\UserRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
@@ -32,6 +34,16 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\ManyToOne(inversedBy: 'users')]
     private ?CategorieUtilisateur $categorieUtilisateur = null;
 
+    #[ORM\OneToMany(mappedBy: 'pro', targetEntity: Quiz::class)]
+    private Collection $quizzes;
+
+    public function __construct()
+    {
+        $this->quizzes = new ArrayCollection();
+    }
+    public function __toString(){
+        return $this->username;
+    }
     public function getId(): ?int
     {
         return $this->id;
@@ -111,6 +123,36 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     public function setCategorieUtilisateur(?CategorieUtilisateur $categorieUtilisateur): self
     {
         $this->categorieUtilisateur = $categorieUtilisateur;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Quiz>
+     */
+    public function getQuizzes(): Collection
+    {
+        return $this->quizzes;
+    }
+
+    public function addQuiz(Quiz $quiz): self
+    {
+        if (!$this->quizzes->contains($quiz)) {
+            $this->quizzes->add($quiz);
+            $quiz->setPro($this);
+        }
+
+        return $this;
+    }
+
+    public function removeQuiz(Quiz $quiz): self
+    {
+        if ($this->quizzes->removeElement($quiz)) {
+            // set the owning side to null (unless already changed)
+            if ($quiz->getPro() === $this) {
+                $quiz->setPro(null);
+            }
+        }
 
         return $this;
     }

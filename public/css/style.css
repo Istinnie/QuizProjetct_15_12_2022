@@ -41,9 +41,11 @@ nav{
 table{
     text-align: left;
     margin-bottom: 20px;
+    width: 200%;
+    
 }
-th, tr{
-    padding: 10px;
+th, tr, td{
+    padding: 5px;
 }
 
 .action{
