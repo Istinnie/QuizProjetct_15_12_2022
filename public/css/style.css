@@ -38,10 +38,10 @@ nav{
     text-align: left;
 }
 
-table{
+.table-quiz{
     text-align: left;
     margin-bottom: 20px;
-    width: 200%;
+    width: 250%;
     
 }
 th, tr, td{
@@ -100,7 +100,7 @@ button:hover {
 
 /* -------------------Mes titres ------------------- */
 label{
-    font-size: 15px;
+    font-size: 16px;
 }
 input, select {
     height: 100%;

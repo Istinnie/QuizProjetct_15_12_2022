@@ -15,10 +15,11 @@
     
         <h1 class="align-middle">Liste des réponses</h1>
         <a href="{{ path('app_reponse_new') }}" class="btn btn-outline-success mb-3 mt-3">Ajouter</a>
-        <table class="table">
+        <table class="table-quiz">
             <thead>
                 <tr>
-                    <th style="visibility:hidden;">Id</th>
+                    {# <th style="visibility:hidden;">Id</th> #}
+                    <th>Question</th>
                     <th>Libellé de la réponse</th>
                     <th>Actions</th>
                 </tr>
@@ -26,7 +27,8 @@
             <tbody>
             {% for reponse in reponses %}
                 <tr>
-                    <td style="visibility:hidden;">{{ reponse.id }}</td>
+                    {# <td style="visibility:hidden;">{{ reponse.id }}</td> #}
+                    <td>{{ reponse.question.NumeroQuestion }} - {{ reponse.question.LibelleQuestion }}</td>
                     <td>{{ reponse.LibelleReponse }}</td>
                     <td>
                         <a href="{{ path('app_reponse_show', {'id': reponse.id}) }}"class="btn btn-outline-primary">
