@@ -7,13 +7,16 @@ body{
     width: 100vh;
     height: auto;
     min-height: 100%; /* 100 % par rapport à l'écran*/
+    display: block;
+    margin-left: auto; 
+    margin-right: auto; 
 }
 /*------------------- le navbar ------------------- */
 
 nav{
-    display:flex;
-
-    justify-content: space-around;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
 }
 /* -------------------Le corps ------------------- */
 .content{
@@ -41,66 +44,126 @@ nav{
 .table-quiz{
     text-align: left;
     margin-bottom: 20px;
-    width: 250%;
+    width: 200%;
     
+    display: block;
+    margin-left: -20%;
+    margin-right: auto;
 }
 th, tr, td{
-    padding: 5px;
+    padding: 10px;
 }
+tr{
+    border: 1px solid rgba(148, 148, 148, 0.582);
+    box-shadow: 2px 2px 3px rgba(117, 101, 101, 0.356);
+}
+.quiz-content{
+    margin-bottom: 10px;
+    padding: 20px;
+    box-shadow: 2px 20px 30px rgb(117, 101, 101);
+    border-radius: 20px;
+    background-image: linear-gradient(to right, #c21500 0%, #ca5b00  51%, #c25e00  100%);
+    color:white;
+
+}
+   
+.quiz-border{
+    background-color: #ffffff62;
+    margin: 10px;
+    padding: 15px 45px;
+    text-align: left;
+    /* text-transform: uppercase; */
+    transition: 0.5s;
+    background-size: 200% auto;
+    color: rgb(0, 0, 0);      
+    border-radius: 20px;
+    display: block;
+    width: auto;
+  }
+.quiz-border  tr{
+    border: none;
+    box-shadow: none;
+}
+  /* .quiz-border:hover {
+    background-position: right center; /* change the direction of the change here 
+    color: #fff;
+    text-decoration: none;
+  } */
+ 
+
 
 .action{
-    display: flex;
-    justify-content: space-around;
-    align-self: start;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
 }
-
-/* ------------------- Le pieds ------------------- */
+.agree{
+    display:flex;
+    flex-direction: row;
+    justify-content: space-between;
+    
+    vertical-align: middle;
+}
+.agree input{
+    margin-left: 5px;
+    width: 20px;
+    height: 20px;
+}
+/* ------------------- Les boutons------------------- */
 
 button {
-    color: #ffffff;
-    background-color: #474CFE;
-    font-size: 12px;
-    border: 1px solid #474CFE;
-    border-radius: 8px;
+    /* color: #ffffff; */
+    /* background-color: #474CFE; */
+    /* font-size: 12px; */
+    /* border: 1px solid #474CFE; */
+    /* border-radius: 8px; */
     padding: 10px;
-    margin-top: 40px;
+    margin-top: 20px;
     cursor: pointer;
     max-width:120%;
     height: 50px;
    
 }
-button:hover {
+/* button:hover {
     color: black;
     background-color: #8d90e4a4;
-}
-.btn-login {
-    color: #ffffff;
-    background-color: #613a08cb;
-    font-size: 20px;
-    border: 1px solid #613a08;
-    border-radius: 8px;
-    padding: 10px;
-    margin-top: 40px;
-    cursor: pointer;
-    max-width:120%;
-    height: 50px;
-    margin-left: 5%;
-}
-.btn-login:hover {
-    color: #fff5e8;
-    background-color: #613a087e;
-}
-.error{
-    /* margin-left: 20px; */
+} */
+
+         
+.btn-quiz {
+    background: rgba(255, 255, 255, 0.685);
+    font-size: 18px;
+    margin: 10px;
+    margin-top: -20px;
+    padding-left: 20px;
+    padding-right: 20px;
     text-align: center;
+    background-size: 200% auto;
+    color: rgb(104, 6, 6);            
+    border-radius:20px;
+    border: none;
+    height: 50px;
+  }
+  .btn-quiz:hover {
+    color: #fff5e8;
+    background-color: #d1451a49;
+    border: 1px solid #fff5e8 ;
 }
+
+a.return-quiz:link{text-decoration:none; color:#d34f03;}
+a.return-quiz:visited{text-decoration:none; color:#c04600;}
+a.return-quiz:hover{text-decoration:none; color:#7f7f7f;}
+ 
+
+
+
 /* --------------------mes images-------------------*/
 
 
 
 /* -------------------Mes titres ------------------- */
 label{
-    font-size: 16px;
+    font-size: 18px;
 }
 input, select {
     height: 100%;
@@ -111,14 +174,16 @@ input, select {
     border-color: #2e2c2a85;
     margin-bottom: 10px;
 }
+input[type="radio"] {
+	accent-color: #c21500;
+    width: 15px;
+    height: 15px;
+}
 h1{
     padding: 0px;
 }
 h2{
-    text-align: center;
-    color: #000000;
-    margin-bottom: 80px;
-    
+    text-align: center; 
 }
 p{
     padding: 0px;
@@ -126,3 +191,6 @@ p{
 }
 
 
+         
+
+ 
