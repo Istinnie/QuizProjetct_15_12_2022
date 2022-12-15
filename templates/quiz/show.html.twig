@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Quiz{% endblock %}
+
+{% block body %}
+    <nav class=" m-2 ">
+    <ul class="nav nav-pills nav-fill ">
+        <li class="nav-item m-2"><a class="nav-link" href="{{ path('app_quiz_index') }}">Quiz</a></li>
+        <li class="nav-item  m-2"><a class="nav-link" href="{{ path('app_question_index') }}">Question</a></li>
+        <li class="nav-item  m-2"><a class="nav-link" href="{{ path('app_reponse_index') }}">Réponse</a></li>
+        <li class="nav-item  m-2"><a class="nav-link" href="{{ path('app_logout') }}">Se déconnecter</a></li>
+    </ul>
+    </nav>
+    <div class="m-5">
+        <h1 class="align-middle">Quiz</h1>
+
+        <table class="mt-5 mb-5">
+            <tbody>
+                <tr>
+                    {# <th>Id</th> #}
+                    {# <td>{{ quiz.id }}</td> #}
+                </tr>
+                <tr>
+                    <th>Numéro de Quiz : </th>
+                    <td>Quiz {{ quiz.NumeroQuiz }}</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <a href="{{ path('app_quiz_index') }}" class="btn btn-outline-primary" >Retourner à la liste</a>
+
+        <a href="{{ path('app_quiz_edit', {'id': quiz.id}) }}" class="btn btn-outline-secondary">Editer</a>
+        <div>
+            {{ include('quiz/_delete_form.html.twig') }}
+        </div>
+    </div>
+{% endblock %}

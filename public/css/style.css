@@ -1,0 +1,120 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@200;400&display=swap');
+
+body{
+    font-family: 'Inter',sans-serif;
+    background-color: #ffffff;
+    color: rgb(0, 0, 0);
+    width: 100vh;
+    height: auto;
+    min-height: 100%; /* 100 % par rapport à l'écran*/
+}
+/*------------------- le navbar ------------------- */
+
+nav{
+    display:flex;
+    justify-content: space-around;
+}
+/* -------------------Le corps ------------------- */
+.content{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 10px;
+    height: 59.5%;
+    margin-top: 5%;
+    margin-bottom: 0.5%;
+    
+    
+}
+.header-left{
+    max-width: 50%;
+    max-height: 20%;
+      
+}
+
+table{
+    text-align: left;
+    margin-bottom: 20px;
+}
+th, tr{
+    padding: 10px;
+}
+
+.action{
+    display: flex;
+    justify-content: space-around;
+    align-self: start;
+}
+
+/* ------------------- Le pieds ------------------- */
+
+button {
+    color: #ffffff;
+    background-color: #474CFE;
+    font-size: 12px;
+    border: 1px solid #474CFE;
+    border-radius: 8px;
+    padding: 10px;
+    margin-top: 40px;
+    cursor: pointer;
+    max-width:120%;
+    height: 50px;
+   
+}
+button:hover {
+    color: black;
+    background-color: #8d90e4a4;
+}
+.btn-login {
+    color: #ffffff;
+    background-color: #613a08cb;
+    font-size: 20px;
+    border: 1px solid #613a08;
+    border-radius: 8px;
+    padding: 10px;
+    margin-top: 40px;
+    cursor: pointer;
+    max-width:120%;
+    height: 50px;
+    margin-left: 5%;
+}
+.btn-login:hover {
+    color: #fff5e8;
+    background-color: #613a087e;
+}
+.error{
+    /* margin-left: 20px; */
+    text-align: center;
+}
+/* --------------------mes images-------------------*/
+
+
+
+/* -------------------Mes titres ------------------- */
+label{
+    font-size: 15px;
+}
+input, select {
+    height: 100%;
+    width: 100%;
+    border-radius: 8px;
+    padding: 10px;
+    font-size: 20px;
+    border-color: #2e2c2a85;
+    margin-bottom: 10px;
+}
+h1{
+    padding: 0px;
+}
+h2{
+    text-align: center;
+    color: #000000;
+    margin-bottom: 80px;
+    
+}
+p{
+    padding: 0px;
+
+}
+
+
