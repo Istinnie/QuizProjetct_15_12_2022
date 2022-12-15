@@ -1,0 +1,36 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Quizzer{% endblock %}
+
+{% block body %}
+    <header>
+        
+        
+    </header>
+    
+    
+    <section >
+        <div class="content">
+            <div class="header-left">
+                <img src="{{ asset('img/QuizLogo.jpg') }}" alt="Logo">
+            </div>
+            <div class="header-right">
+                <div>
+                    <h1 class="mt-5">Bienvenue sur Quizzer</h1>
+                </div>
+                <ul class="nav mt-5">
+                    <li class="nav-item  "><a class="nav-link" href="{{ path('app_login') }}">Se connecter</a></li>
+                    <li class="nav-item  "><a class="nav-link" href="{{ path('app_register') }}">S'enregistrer</a></li>
+                </ul>
+            </div>
+            <div>
+                
+            </div>
+
+        </div>
+        
+
+    </section>
+        
+
+{% endblock %}
