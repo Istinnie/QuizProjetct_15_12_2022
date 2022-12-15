@@ -33,6 +33,9 @@ class RegistrationController extends AbstractController
             $entityManager->persist($user);
             $entityManager->flush();
             // do anything else you need here, like send an email
+            // assigner le rôle professionnel
+            // $user->setRoles(['ROLE_PRO']);
+            // $entityManager->flush();
 
             return $this->redirectToRoute('app_quiz_index');
         }
@@ -41,4 +44,7 @@ class RegistrationController extends AbstractController
             'registrationForm' => $form->createView(),
         ]);
     }
+
+
+    
 }
