@@ -14,8 +14,8 @@ use Gedmo\Blameable\Traits\BlameableEntity;
 #[ORM\Entity(repositoryClass: ReponseRepository::class)]
 class Reponse
 {
-    use TimestampableEntity;
-    use BlameableEntity;
+    // use TimestampableEntity;
+    // use BlameableEntity;
     
     #[ORM\Id]
     #[ORM\GeneratedValue]
@@ -38,7 +38,9 @@ class Reponse
         $this->resultats = new ArrayCollection();
     }
 
-    
+    public function __toString(){
+        return $this->LibelleReponse;
+    }
 
     public function getId(): ?int
     {

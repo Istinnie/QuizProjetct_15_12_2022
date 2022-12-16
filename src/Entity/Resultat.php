@@ -13,8 +13,8 @@ class Resultat
     #[ORM\Column]
     private ?int $id = null;
 
-    #[ORM\Column]
-    private ?int $NumeroResultat = null;
+    // #[ORM\Column]
+    // private ?int $NumeroResultat = null;
 
     #[ORM\ManyToOne(inversedBy: 'user')]
     #[ORM\JoinColumn(nullable: false)]
@@ -33,29 +33,29 @@ class Resultat
         return $this->id;
     }
 
-    public function getNumeroResultat(): ?int
-    {
-        return $this->NumeroResultat;
-    }
-
-    public function setNumeroResultat(int $NumeroResultat): self
-    {
-        $this->NumeroResultat = $NumeroResultat;
-
-        return $this;
-    }
-
-    // public function getQuiz(): ?Quiz
+    // public function getNumeroResultat(): ?int
     // {
-    //     return $this->quiz;
+    //     return $this->NumeroResultat;
     // }
 
-    // public function setQuiz(?Quiz $quiz): self
+    // public function setNumeroResultat(int $NumeroResultat): self
     // {
-    //     $this->quiz = $quiz;
+    //     $this->NumeroResultat = $NumeroResultat;
 
     //     return $this;
     // }
+
+    public function getQuiz(): ?Quiz
+    {
+        return $this->quiz;
+    }
+
+    public function setQuiz(?Quiz $quiz): self
+    {
+        $this->quiz = $quiz;
+
+        return $this;
+    }
 
     public function getUserResp(): ?User
     {

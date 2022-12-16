@@ -16,11 +16,16 @@
             </svg>
             Liste des Quiz</a>
         </div>
-        {# <li class="nav-item  m-2"><a class="nav-link" href="{{ path('app_question_index') }}">Question</a></li>
-        <li class="nav-item  m-2"><a class="nav-link" href="{{ path('app_reponse_index') }}">Réponse</a></li>
-        <li class="nav-item  m-2"><a class="nav-link" href="{{ path('app_logout') }}">Se déconnecter</a></li> #}
     </div>
 </nav>
+
+{% for message in app.flashes('success')%}
+    <div class="alert alert-success">
+        {{message}}
+    </div>
+
+{% endfor %}
+
 <div class="example-wrapper">
     {# ✅  #}
     <div class="quiz-content">
@@ -28,7 +33,9 @@
         <div class="mt-4 ml-3">
             <p>Un questionnaire de {{quiz.pro}} </p>
         </div>
-        <div>
+
+
+        <form method="post" action="{{ path('app', {'id': quiz.id})}}">
             <div class="mt-3 mb-5">
                 <div >
                 {% for question in quiz.questions %}
@@ -43,11 +50,15 @@
                                     {# {{reponse.id}})  #}
                                 {# <div class="custom-control custom-radio  mt-2"> #}
                                     <tr >
-                                        <td><input class="" type="radio" name={{question.id}} id="{{reponse.id}}"></td>
-                                        <td><label class="form-check-label" for="{{reponse.id}}"> {{reponse.LibelleReponse}}</label></td>
+                                        {# avant 
+                                        <td><input class="" type="radio" name={{question.id}} id="{{reponse.id}}"></td> 
+                                        #}
+                                        <td><input class="" type="radio" name={{reponse.id}} id="{{reponse}}"></td>
+                                        <td><label class="form-check-label" for="{{reponse}}"> {{reponse.LibelleReponse}}</label></td>
                                     </tr>
                                     <tr> </tr>
                                     
+                                        
                                 {# </div> #}
                                 {% endfor %}
                                 </tbody>
@@ -57,9 +68,12 @@
                 {% endfor %}
                 </div>
             </div>
-        </div>
+            <button type ="submit" class="btn-quiz">Envoyer</button>    
+        </form>
         
-        <button class="btn-quiz">Envoyer</button>
+        
     </div>
+
+
 </div>
 {% endblock %}

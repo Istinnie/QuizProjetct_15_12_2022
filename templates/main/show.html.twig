@@ -1,0 +1,63 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Faire un quiz{% endblock %}
+
+{% block body %}
+<style>
+    .example-wrapper {  max-width: 800px; width: 100%; font: 18px/1.5 sans-serif; }
+    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+</style>
+<nav class=" mt-3 mb-3">
+    <div >
+        {# <li class="nav-item m-2"><a class="nav-link" href="{{ path('app'),{'id': quiz.id} }}">Faire un quiz</a></li> #}
+        <div class=""><a class="return-quiz" href="{{ path('app_quiz_index') }}">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-left" viewBox="0 0 16 16">
+            <path fill-rule="evenodd" d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8z"/>
+            </svg>
+            Liste des Quiz</a>
+        </div>
+    </div>
+</nav>
+<div class="example-wrapper">
+    <div class="quiz-content">
+        <h2>{{quiz}} ...</h2>
+        <div class="mt-4 ml-3">
+            <p>Un questionnaire de {{quiz.pro}} </p>
+        </div>
+        <div>
+            <div class="mt-3 mb-5">
+                <div >
+                    {# <div class="ml-2">
+                          {{question}}  
+                    </div> #}
+                    <div class="quiz-border">
+                        <div>
+                            <h5>{{quiz.question.NumeroQuestion}}. {{quiz.question.LibelleQuestion}}</h5>
+                            
+                        </div>
+                        <div class="ml-5 mt-2 fs-4">
+                            <form method="post" action="{{ path('app', {'id': quiz.id})}}">
+                                <table>
+                                    <tbody>
+                                    {% for reponse in question.reponses %}
+                                        <tr >
+                                            <td><input  type ="submit" name="{{reponse.id}}" value="{{reponse}}"></td>
+                                        </tr>
+                                        
+                                        
+                                    {% endfor %}
+                                    </tbody>
+                                </table>
+                                {# <input  type ="hidden" name="questionReponse" > #}
+                            </form>
+                        </div>
+                    </div>    
+                
+                </div>
+            </div>
+        </div>
+        
+        {# <button  class="btn-quiz">Envoyer</button> #}
+    </div>
+</div>
+{% endblock %}
