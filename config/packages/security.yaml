@@ -27,13 +27,15 @@ security:
 
       # https://symfony.com/doc/current/security/impersonating_user.html
       # switch_user: true
-
+  # role_hierarchy:
+  #   ROLE_PRO: ROLE_USER
+  #   ROLE_ADMIN: ROLE_PRO
   # Easy way to control access for large sections of your site
   # Note: Only the *first* access control that matches will be used
   access_control:
-    - { path: ^/quiz, roles: ROLE_USER }
-    - { path: ^/question, roles: ROLE_USER }
-    - { path: ^/reponse, roles: ROLE_USER }
+    - { path: ^/quiz, roles: ROLE_ADMIN }
+    - { path: ^/question, roles: ROLE_ADMIN }
+    - { path: ^/reponse, roles: ROLE_ADMIN }
 
 when@test:
   security:

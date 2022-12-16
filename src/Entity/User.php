@@ -37,9 +37,13 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\OneToMany(mappedBy: 'pro', targetEntity: Quiz::class)]
     private Collection $quizzes;
 
+    #[ORM\OneToMany(mappedBy: 'userResp', targetEntity: Resultat::class, orphanRemoval: true)]
+    private Collection $resultats;
+
     public function __construct()
     {
         $this->quizzes = new ArrayCollection();
+        $this->resultats = new ArrayCollection();
     }
     public function __toString(){
         return $this->username;
@@ -80,7 +84,8 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         // guarantee every user at least has ROLE_USER
         $roles[] = 'ROLE_USER';
         // $roles[] = 'ROLE_ADMIN';
-
+        // $roles[] = 'ROLE_PRO';
+        // 
         return array_unique($roles);
     }
 
@@ -151,6 +156,36 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
             // set the owning side to null (unless already changed)
             if ($quiz->getPro() === $this) {
                 $quiz->setPro(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Resultat>
+     */
+    public function getResultats(): Collection
+    {
+        return $this->resultats;
+    }
+
+    public function addResultat(Resultat $resultat): self
+    {
+        if (!$this->resultats->contains($resultat)) {
+            $this->resultats->add($resultat);
+            $resultat->setUserResp($this);
+        }
+
+        return $this;
+    }
+
+    public function removeResultat(Resultat $resultat): self
+    {
+        if ($this->resultats->removeElement($resultat)) {
+            // set the owning side to null (unless already changed)
+            if ($resultat->getUserResp() === $this) {
+                $resultat->setUserResp(null);
             }
         }
 
