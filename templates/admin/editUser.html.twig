@@ -4,7 +4,15 @@
 
 {% block body %}
     <h1 class="mt-5 mb-5">Modifier un utilisateur</h1>
-    {{ form(userForm) }}
+        {{ form_start(userForm) }}
+    {{ form_errors(userForm) }}
+        <div class="mt-2">
+            {{ form_row(userForm.username) }}
+        </div>
+        <div class="mt-2 edit-role">
+            {{ form_row(userForm.roles) }}
+        </div>
+    {{ form_end(userForm) }}
     <div><a href="{{ path('app_users') }}" class="btn btn-outline-primary mt-4" >Retourner à la liste</a></div>
 
 {% endblock %}

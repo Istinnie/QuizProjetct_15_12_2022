@@ -50,7 +50,11 @@ class MainController extends AbstractController
             //     $resultat->setQuiz($quiz);
             //     $resultatRepository->save($resultat, true);
             // }
-            $this->addFlash('success','Vos réponses sont bien enregistrées, Merci !');
+            // test the form is submitted successfully or not
+            if (isset($_POST['submit'])) {
+                $this->addFlash('success','Vos réponses sont bien enregistrées, Merci !');
+            }
+            
             // return $this->redirectToRoute('app_quiz_list');
             
             
@@ -71,18 +75,18 @@ class MainController extends AbstractController
             
         }
         // On veut avoir le tableau de questions
-        foreach($questions as $q){
+        // foreach($questions as $q){
 
-            if (!in_array ($q , $questionClient)){
-                return $this->render('main/show.html.twig', [
-                    'question' => $q,
-                    'quiz' => $quiz,
-                ]);
+        //     if (!in_array ($q , $questionClient)){
+        //         return $this->render('main/show.html.twig', [
+        //             'question' => $q,
+        //             'quiz' => $quiz,
+        //         ]);
 
-            }
+        //     }
             
             
-        }
+        // }
 
         // dump($quiz);
         // dump($questions);

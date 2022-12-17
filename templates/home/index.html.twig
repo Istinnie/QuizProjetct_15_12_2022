@@ -9,23 +9,35 @@
     </header>
     
     
-    <section >
-        <div class="content">
-            <div class="header-left">
+    <section class="content">
+        <div class="content-middle">
+            <div class="content-left">
                 <img src="{{ asset('img/QuizLogo.jpg') }}" alt="Logo">
             </div>
-            <div class="header-right">
+            <div class="content-right">
                 <div>
                     <h1 class="mt-5">Bienvenue sur Quizzer</h1>
                 </div>
-                <ul class="nav mt-5">
-                {% if not app.user %}
-                    <li class="nav-item  "><a class="btn btn-outline-primary mt-4" href="{{ path('app_register') }}">S'enregistrer</a></li>
-                    <li class="nav-item  "><a class="btn btn-outline-primary mt-4 ml-4" href="{{ path('app_login') }}">Se connecter</a></li>
-                {% else %}
-                    <li class="nav-item  "><a class="btn btn-outline-primary mt-4" href="{{ path('app_logout') }}">Se déconnecter</a></li>
-                {% endif %}
-                </ul>
+                <div >
+                    <ul class="nav mt-2">
+                        <li class="nav-item  "><a class="btn btn-outline-warning mt-4 text-secondary" href="{{ path('app_register_client') }}">
+                            Faire un quiz <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-right" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"/>
+                            </svg>
+                            </a></li>
+                    
+                    </ul>
+                </div>
+                <div >
+                    <ul class="nav mt-2">
+                    {% if not app.user %}
+                        <li class="nav-item  "><a class="btn btn-outline-primary mt-4" href="{{ path('app_register') }}">S'enregistrer</a></li>
+                        <li class="nav-item  "><a class="btn btn-outline-primary mt-4 ml-4" href="{{ path('app_login') }}">Se connecter</a></li>
+                    {% else %}
+                        <li class="nav-item  "><a class="btn btn-outline-primary mt-4" href="{{ path('app_logout') }}">Se déconnecter</a></li>
+                    {% endif %}
+                    </ul>
+                </div>
             </div>
             <div>
                 
