@@ -39,6 +39,19 @@ class QuizRepository extends ServiceEntityRepository
         }
     }
 
+    public function findByRoleThatSucksLess(string $role)
+    {
+        $role = mb_strtoupper($role);
+
+        return $this->createQueryBuilder('u')
+            ->andWhere('JSON_CONTAINS(u.roles, :role) = 1')
+            ->setParameter('role', '"ROLE_' . $role . '"')
+            ->getQuery()
+            ->getResult();
+    }
+
+    
+
 //    /**
 //     * @return Quiz[] Returns an array of Quiz objects
 //     */

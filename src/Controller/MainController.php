@@ -75,18 +75,18 @@ class MainController extends AbstractController
             
         }
         // On veut avoir le tableau de questions
-        // foreach($questions as $q){
+        foreach($questions as $q){
 
-        //     if (!in_array ($q , $questionClient)){
-        //         return $this->render('main/show.html.twig', [
-        //             'question' => $q,
-        //             'quiz' => $quiz,
-        //         ]);
+            if (!in_array ($q , $questionClient)){
+                return $this->render('main/show.html.twig', [
+                    'question' => $q,
+                    'quiz' => $quiz,
+                ]);
 
-        //     }
+            }
             
             
-        // }
+        }
 
         // dump($quiz);
         // dump($questions);
@@ -96,6 +96,7 @@ class MainController extends AbstractController
         return $this->render('main/index.html.twig', [
             'quiz' => $quiz,
         ]);
+        
     }
 
 }

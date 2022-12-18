@@ -14,12 +14,9 @@ class QuestionType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('quiz', TextType::class, [
-                'label' => 'Référence du quiz'])
-            ->add('NumeroQuestion', TextType::class, [
-                'label' => 'N° de question'])
-            ->add('LibelleQuestion', TextType::class, [
-                'label' => 'Libellé de la question'])
+            ->add('quiz')
+            ->add('NumeroQuestion')
+            ->add('LibelleQuestion')
             
             
         ;

@@ -1,4 +1,25 @@
 {{ form_start(form) }}
-    {{ form_widget(form) }}
+
+        {{ form_errors(form) }}
+            <div class="mt-2">
+                {{ form_row(form.quiz, {
+                label: 'Référence du quiz'
+            }) }}
+            </div>
+            
+            <div class="mt-3">
+                {{ form_row(form.NumeroQuestion, {
+                label: 'N° de question'
+            }) }}
+            <div class="mt-3">
+                {{ form_row(form.LibelleQuestion, {
+                label: 'Libellé de la question'
+            }) }}
+            </div>
+            </div>
+        
+        {# {{ form_end(userForm) }} #}
+    {# {{ form_widget(form) }} #}
+
     <button class="btn btn-outline-info">{{ button_label|default('Enregistrer') }}</button>
 {{ form_end(form) }}

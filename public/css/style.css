@@ -162,13 +162,14 @@ tr{
     border-radius: 20px;
     width: 200px;
 }
-.edit-role{
+.edit-role, .edit-role-modify{
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     vertical-align: middle;
 
 }
+
 
 .edit-role input[type="checkbox"]{
     width: 25px;
@@ -181,7 +182,15 @@ tr{
     margin-right: 40px;
     pointer-events: none;
 }
-
+.edit-role-modify input[type="checkbox"]{
+    width: 25px;
+    margin-right: 5px;
+    accent-color:rgba(255, 255, 255, 0.288);
+}
+.edit-role-modify label{
+    margin-right: 40px;
+    pointer-events: none;
+}
 
 /* ------------------- Les boutons------------------- */
 
