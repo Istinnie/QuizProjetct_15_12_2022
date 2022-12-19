@@ -3,6 +3,11 @@
 namespace App\Controller;
 use App\Entity\User;
 use App\Repository\UserRepository;
+
+use App\Entity\Quiz;
+use App\Form\QuizType;
+use App\Repository\QuizRepository;
+
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -16,19 +21,21 @@ use Symfony\Contracts\Translation\TranslatorInterface;
 
 class HomeClientController extends AbstractController
 {
-    #[Route('/client', name: 'app_home_client')]
-    public function index(): Response
-    {   
+    // #[Route('/client', name: 'app_home_client')]
+    // public function index(): Response
+    // {   
         
+    //     return $this->render('home_client/index.html.twig', [
+    //         'controller_name' => 'HomeClientController',
+    //     ]);
+    // }
+    #[Route('/client', name: 'app_home_client', methods: ['GET'])]
+    public function index(QuizRepository $quizRepository): Response
+    {
         return $this->render('home_client/index.html.twig', [
-            'controller_name' => 'HomeClientController',
+            'quizzes' => $quizRepository->findAll(),
         ]);
     }
-    // #[Route('/register/app/client', name:'app_home_client_pro')]
-    // public function usersList(UserRepository $users)
-    // {
-    //     return $this->render('home_client/addUserClient.html.twig');
-    // }
 
     #[Route('/register/client', name: 'app_register_client')]
     public function register(Request $request, UserPasswordHasherInterface $userPasswordHasher, EntityManagerInterface $entityManager): Response

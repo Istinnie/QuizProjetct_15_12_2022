@@ -45,7 +45,19 @@ class AppCustomAuthenticator extends AbstractLoginFormAuthenticator
         if ($targetPath = $this->getTargetPath($request->getSession(), $firewallName)) {
             return new RedirectResponse($targetPath);
         }
+        // the $token holds the user object. You might have stumbled upon this in the context of the service `security.token_storage`
+        $user = $token->getUser();
+        if (in_array('ROLE_ADMIN', $user->getRoles(), true)) {
+            return new RedirectResponse($this->urlGenerator->generate('app_quiz_index'));
+        }
+        if (in_array('ROLE_PRO', $user->getRoles(), true)) {
+            return new RedirectResponse($this->urlGenerator->generate('app_quiz_index'));
+        }
+        if (in_array('ROLE_CLIENT', $user->getRoles(), true)) {
+            return new RedirectResponse($this->urlGenerator->generate('app_home_client'));
+        }
 
+    
         // For example:
         return new RedirectResponse($this->urlGenerator->generate('app_quiz_index'));
         // throw new \Exception('TODO: provide a valid redirect inside '.__FILE__);
