@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Quiz{% endblock %}
+
+{% block body %}
+
+    <nav class="m-2 ">
+        <ul class="nav nav-pills nav-fill ">
+            <li class="nav-item m-2"><a class="nav-link" href="{{ path('app_quiz_index') }}">Quiz</a></li>
+            <li class="nav-item m-2"><a class="nav-link" href="{{ path('app_quiz_index') }}">Résultat</a></li>
+            <li class="nav-item  m-2"><a class="nav-link" href="{{ path('app_logout') }}">Se déconnecter</a></li>
+    
+        </ul>
+    </nav>
+    <div class="m-5">
+    
+        <h1 class="text-center">Mes quiz</h1>
+       
+        <div class="table-quiz  ml-4">
+            
+            {% for quiz in quizzes %}
+                <div class="table-quiz  mt-4" >
+                    {# <td style="visibility:hidden;">{{ quiz.id }}</td> #}
+                    <div>Quiz {{ quiz.NumeroQuiz }}</div>
+                    <div class="mt-2">{{ quiz.pro }}</div>
+                    <div class="mt-2">
+                        
+
+                        <a href="{{ path('app', {'id': quiz.id}) }}" class="btn btn-outline-warning ">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-right" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"/>
+                        </svg>
+                         Jouer</a>
+
+                    </div>
+                </div>
+                
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+
+{% endblock %}
